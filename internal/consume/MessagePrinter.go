@@ -7,6 +7,7 @@ import (
 
 	"github.com/IBM/sarama"
 	"github.com/deviceinsight/kafkactl/v5/internal/output"
+	"github.com/deviceinsight/kafkactl/v5/internal/util"
 )
 
 type message struct {
@@ -119,7 +120,12 @@ func printMessage(msg *message, flags Flags) error {
 
 		row = append(row, value)
 
-		output.PrintStrings(strings.Join(row[:], flags.Separator))
+		lineSeparator := flags.LineSeparator
+		if lineSeparator == "" {
+			lineSeparator = "\n"
+		}
+
+		output.Statusf("%s%s", strings.Join(row[:], flags.Separator), util.ConvertControlChars(lineSeparator))
 		return nil
 	}
 	return output.PrintObject(msg, flags.OutputFormat)

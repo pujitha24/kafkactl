@@ -41,6 +41,7 @@ func NewConsumeCmd() *cobra.Command {
 	cmdConsume.Flags().BoolVarP(&flags.Exit, "exit", "e", flags.Exit, "stop consuming when latest offset is reached")
 	cmdConsume.Flags().IntSliceVarP(&flags.Partitions, "partitions", "p", flags.Partitions, "partitions to consume. The default is to consume from all partitions.")
 	cmdConsume.Flags().StringVarP(&flags.Separator, "separator", "s", "#", "separator to split key and value")
+	cmdConsume.Flags().StringVarP(&flags.LineSeparator, "lineSeparator", "L", "\n", "separator to print between consumed messages")
 	cmdConsume.Flags().StringVarP(&flags.Group, "group", "g", "", "consumer group to join")
 	cmdConsume.Flags().StringArrayVarP(&flags.Offsets, "offset", "", flags.Offsets, "offsets in format `partition=offset (for partitions not specified, other parameters apply)`")
 	cmdConsume.Flags().BoolVarP(&flags.FromBeginning, "from-beginning", "b", false, "set offset for consumer to the oldest offset")

@@ -666,6 +666,15 @@ To print partition in default output format use:
 kafkactl consume my-topic --print-partitions
 ----
 
+By default, messages are separated by a newline in the default output format. If the message content contains
+newlines itself (e.g. multiline JSON), a custom message separator can be used to reliably distinguish messages
+from each other:
+
+[,bash]
+----
+kafkactl consume my-topic --lineSeparator='~~'
+----
+
 Headers of kafka messages can be printed with the parameter `--print-headers` e.g.:
 
 [,bash]

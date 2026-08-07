@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- [#277](https://github.com/deviceinsight/kafkactl/issues/277) `consume` now supports `--lineSeparator` to customize the separator printed between messages in the default output format, making multiline messages easier to split reliably
+
 ## 5.20.0 - 2026-07-30
 
 ### Changed

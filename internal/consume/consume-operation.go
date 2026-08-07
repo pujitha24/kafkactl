@@ -30,6 +30,7 @@ type Flags struct {
 	PrintAll            bool
 	OutputFormat        string
 	Separator           string
+	LineSeparator       string
 	Group               string
 	Partitions          []int
 	Offsets             []string
